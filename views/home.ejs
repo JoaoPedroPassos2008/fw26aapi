@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API de Notícias</title>
+    <!-- Incluindo o Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .section-header {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .endpoint {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .endpoint pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center mt-5 mb-5">Documentação da API de Notícias</h1>
+
+    <!-- Descrição da API -->
+    <div class="alert alert-info" role="alert">
+        Esta API permite a manipulação de dados de notícias em um banco MongoDB Atlas. Ela possui funcionalidades de busca, inserção, atualização e exclusão de notícias.
+    </div>
+
+    <!-- Endpoints -->
+    <div class="section-header">
+        <h2>Endpoints da API</h2>
+    </div>
+
+    <!-- Buscar todas as notícias -->
+    <div class="endpoint">
+        <h4>GET /noticias</h4>
+        <p>Retorna uma lista com todas as notícias armazenadas no banco de dados.</p>
+        <pre><code>GET /noticias</code></pre>
+    </div>
+
+    <!-- Buscar notícia por ID -->
+    <div class="endpoint">
+        <h4>GET /noticias/id/:id</h4>
+        <p>Retorna uma notícia específica com base no ID fornecido.</p>
+        <pre><code>GET /noticias/id/1234567890abcdef</code></pre>
+    </div>
+
+    <!-- Buscar notícias por tipo -->
+    <div class="endpoint">
+        <h4>GET /noticias/tiponoticia/:tipo</h4>
+        <p>Retorna uma lista de notícias filtradas pelo tipo especificado.</p>
+        <pre><code>GET /noticias/tiponoticia/politica</code></pre>
+    </div>
+
+    <!-- Inserir uma nova notícia -->
+    <div class="endpoint">
+        <h4>POST /postnoticias</h4>
+        <p>Insere uma nova notícia no banco de dados. Os dados devem ser enviados no corpo da requisição no formato JSON.</p>
+        <pre><code>POST /postnoticias</code></pre>
+        <p><strong>Exemplo de corpo da requisição (JSON):</strong></p>
+        <pre><code>{
+  "titulo": "Nova Notícia",
+  "descricao": "Descrição da nova notícia",
+  "tipo": "politica",
+  "data": "2025-11-28"
+}</code></pre>
+    </div>
+
+    <!-- Deletar uma notícia -->
+    <div class="endpoint">
+        <h4>DELETE /delnoticias</h4>
+        <p>Deleta uma notícia específica. Os dados devem ser enviados no corpo da requisição no formato JSON.</p>
+        <pre><code>DELETE /delnoticias</code></pre>
+        <p><strong>Exemplo de corpo da requisição (JSON):</strong></p>
+        <pre><code>{
+  "id": "1234567890abcdef"
+}</code></pre>
+    </div>
+
+    <!-- Atualizar uma notícia -->
+    <div class="endpoint">
+        <h4>PUT /putnoticias</h4>
+        <p>Atualiza os dados de uma notícia específica. Os dados devem ser enviados no corpo da requisição no formato JSON.</p>
+        <pre><code>PUT /putnoticias</code></pre>
+        <p><strong>Exemplo de corpo da requisição (JSON):</strong></p>
+        <pre><code>{
+  "id": "1234567890abcdef",
+  "titulo": "Notícia Atualizada",
+  "descricao": "Descrição da notícia atualizada",
+  "tipo": "tecnologia",
+  "data": "2025-11-28"
+}</code></pre>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="text-center mt-5 mb-3">
+        <p>&copy; 2025 API de Notícias. Todos os direitos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>
